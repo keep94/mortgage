@@ -83,7 +83,7 @@ kTemplateSpec = `
 </table>
 <br>
 <table>
-  <tr>
+  <tr class="lineitem">
     <td><b>Date</b></td>
     <td><b>Payment</b></td>
     <td><b>Interest</b></td>
@@ -192,16 +192,15 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
         })
     return
   }
-  v := &view{
-      Values: http_util.Values{r.Form},
-      Loan: loan,
-      Totals: aggregate(terms),
-      Months: kMonths,
-  }
   http_util.WriteTemplate(
       w,
       kTemplate,
-      v)
+      &view{
+          Values: http_util.Values{r.Form},
+          Loan: loan,
+          Totals: aggregate(terms),
+          Months: kMonths,
+      })
 }
 
 type yearTotals struct {
@@ -243,7 +242,6 @@ type view struct {
   Loan *mortgage.Loan
   Totals *loanTotals
   Error error
-  TotalInterest int64
   Months http_util.ComboBox
 }
 
