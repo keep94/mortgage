@@ -251,7 +251,12 @@ func aggregate(terms []*mortgage.Term) *loanTotals {
     result.Payment += terms[i].Payment
     result.Interest += terms[i].Interest
     result.Principal += terms[i].Principal()
-    year := terms[i].Date.Year()
+    // This way payments due on Jan 1 are aggregated with previous year.
+    // We assume payment is made one day before due date. While this
+    // does the right thing for payments due on the 1st, generally it won't
+    // work if we ever support payments due on a day other than the 1st
+    // because then it depends on when payment is made.
+    year := terms[i].Date.AddDate(0, 0, -1).Year()
     yTotal := result.Years[year]
     if yTotal == nil {
       yTotal = newYearTotals(terms, i)
