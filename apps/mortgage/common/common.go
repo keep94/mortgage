@@ -3,9 +3,10 @@
 package common
 
 import (
-	"github.com/keep94/finance/fin"
 	"html/template"
 	"time"
+
+	"github.com/keep94/mortgage"
 )
 
 // NewTemplate returns a new template instance. name is the name
@@ -14,7 +15,7 @@ func NewTemplate(name, templateStr string) *template.Template {
 	return template.Must(template.New(name).Funcs(
 		template.FuncMap{
 			"FormatDate": formatDate,
-			"FormatUSD":  fin.FormatUSD}).Parse(templateStr))
+			"FormatUSD":  mortgage.FormatUSD}).Parse(templateStr))
 }
 
 func formatDate(t time.Time) string {

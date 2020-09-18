@@ -2,9 +2,12 @@
 package mortgage
 
 import (
-	"github.com/keep94/appcommon/date_util"
+	"fmt"
 	"math"
+	"strconv"
 	"time"
+
+	"github.com/keep94/appcommon/date_util"
 )
 
 // Term represents a single term within an amortization schedule.
@@ -92,6 +95,23 @@ func (l *Loan) Terms(year, month, maxTerms int) []*Term {
 		}
 	}
 	return result
+}
+
+// FormatUSD returns amount as dollars and cents.
+// 347 -> "3.47"
+func FormatUSD(x int64) string {
+	return fmt.Sprintf("%.2f", float64(x)/100.0)
+}
+
+// ParseUSD is the inverse of FormatUSD.
+// "3.47" -> 347
+func ParseUSD(s string) (v int64, e error) {
+	f, e := strconv.ParseFloat(s, 64)
+	if e != nil {
+		return
+	}
+	v = int64(math.Floor(f*100.0 + 0.5))
+	return
 }
 
 func solveForPayment(

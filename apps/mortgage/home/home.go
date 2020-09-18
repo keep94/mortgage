@@ -3,7 +3,6 @@ package home
 import (
 	"errors"
 	"github.com/keep94/appcommon/http_util"
-	"github.com/keep94/finance/fin"
 	"github.com/keep94/mortgage"
 	"github.com/keep94/mortgage/apps/mortgage/common"
 	"html/template"
@@ -154,7 +153,7 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 	month, _ := kMonths.ToValue(r.Form.Get("month")).(int)
 	year, _ := strconv.Atoi(r.Form.Get("year"))
-	amount, _ := fin.ParseUSD(r.Form.Get("amount"))
+	amount, _ := mortgage.ParseUSD(r.Form.Get("amount"))
 	rate, _ := strconv.ParseFloat(r.Form.Get("rate"), 64)
 	rate /= 100.0
 	length, _ := strconv.Atoi(r.Form.Get("term"))
