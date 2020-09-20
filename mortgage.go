@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/keep94/appcommon/date_util"
+	"github.com/keep94/toolbox/date_util"
 )
 
 // Term represents a single term within an amortization schedule.
