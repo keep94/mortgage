@@ -121,18 +121,18 @@ var (
 var (
 	kMaxTerms = 1200
 	kMonths   = http_util.ComboBox{
-		{"January", 1},
-		{"February", 2},
-		{"March", 3},
-		{"April", 4},
-		{"May", 5},
-		{"June", 6},
-		{"July", 7},
-		{"August", 8},
-		{"September", 9},
-		{"October", 10},
-		{"November", 11},
-		{"December", 12},
+		{Name: "January", Value: 1},
+		{Name: "February", Value: 2},
+		{Name: "March", Value: 3},
+		{Name: "April", Value: 4},
+		{Name: "May", Value: 5},
+		{Name: "June", Value: 6},
+		{Name: "July", Value: 7},
+		{Name: "August", Value: 8},
+		{Name: "September", Value: 9},
+		{Name: "October", Value: 10},
+		{Name: "November", Value: 11},
+		{Name: "December", Value: 12},
 	}
 )
 
@@ -146,7 +146,7 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			w,
 			kTemplate,
 			&view{
-				Values: http_util.Values{r.Form},
+				Values: http_util.Values{Values: r.Form},
 				Months: kMonths,
 			})
 		return
@@ -172,7 +172,7 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			w,
 			kTemplate,
 			&view{
-				Values: http_util.Values{r.Form},
+				Values: http_util.Values{Values: r.Form},
 				Months: kMonths,
 				Error:  errors.New(message),
 			})
@@ -185,7 +185,7 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			w,
 			kTemplate,
 			&view{
-				Values: http_util.Values{r.Form},
+				Values: http_util.Values{Values: r.Form},
 				Months: kMonths,
 				Error:  errors.New("Too many terms to display"),
 			})
@@ -195,7 +195,7 @@ func (h Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		w,
 		kTemplate,
 		&view{
-			Values: http_util.Values{r.Form},
+			Values: http_util.Values{Values: r.Form},
 			Loan:   loan,
 			Totals: aggregate(terms),
 			Months: kMonths,
