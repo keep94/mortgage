@@ -1,6 +1,6 @@
-github.com/gorilla/context v1.1.1 h1:AWwleXJkX/nhcU9bZSnZoi3h/qGYqQAGhq6zZe/aQW8=
-github.com/gorilla/context v1.1.1/go.mod h1:kBGZzfjB9CEq2AlWe17Uuf7NDRt0dE0s8S51q0aT7Yg=
-github.com/keep94/toolbox v0.7.1 h1:T1siP7NGtugbMRyhF4po5uSviJ2LtQ5XuJqaNGnROJ8=
-github.com/keep94/toolbox v0.7.1/go.mod h1:Qn21KOssa6DYY7Ft7tckblK4jkOl4R08ELb0PDkdJT0=
-github.com/keep94/weblogs v1.0.0 h1:YTmyjV2rF4Bhl6rMGkoe4mIdHPNKjAkMMZ670bhkK+Q=
-github.com/keep94/weblogs v1.0.0/go.mod h1:OoIYchSf6QRvBwDLK8+PNbR8EAXwwITG7wIxKH3+AOM=
+github.com/keep94/context v0.1.0 h1:FecPv0geuWcdf+8nRmF5RnF6Sk2ahy26jFt7uRivmUw=
+github.com/keep94/context v0.1.0/go.mod h1:IXF7ZIYvKxmGCPiN5tJYbhv5AWaxIDclpOQHuzJsxLI=
+github.com/keep94/toolbox v0.8.0 h1:BtS9LDVS7ORF+3fh2VkcC9SPCkvrTvzwLEZwn1CyzxA=
+github.com/keep94/toolbox v0.8.0/go.mod h1:24PicnIycd6JZJwdE3+7MewUw3GNYAsDM1FaHDwiBvY=
+github.com/keep94/weblogs v1.0.1 h1:sEN2JFqTPkc6BkCxwCKNXQuzh2h8eHLDLiCH2/KMWmM=
+github.com/keep94/weblogs v1.0.1/go.mod h1:bYHO1S7UhVcPkoDjKAJTuCdSXoVdcv1n1I09kYlBKwE=
